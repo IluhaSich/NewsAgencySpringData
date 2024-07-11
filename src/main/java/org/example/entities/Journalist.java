@@ -1,48 +1,39 @@
 package org.example.entities;
+
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "journalist")
 public class Journalist {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer journalist_id;
-    @Column(nullable = false)
-    private String full_name;
-    @Column(nullable = false)
-    private String contact_info;
-    @Column(nullable = false)
+    private String fullName;
+    private String contactInfo;
     private String specialization;
 
-    public Integer getJournalist_id() {
-        return journalist_id;
+    public Journalist(String fullName, String contactInfo, String specialization) {
+        this.fullName = fullName;
+        this.contactInfo = contactInfo;
+        this.specialization = specialization;
     }
 
-    public void setJournalist_id(Integer journalist_id) {
-        this.journalist_id = journalist_id;
+    protected Journalist() {
     }
 
-    public String getFull_name() {
-        return full_name;
+    @Column(name = "full_name")
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setFull_name(String full_name) {
-        this.full_name = full_name;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
-    public String getContact_info() {
-        return contact_info;
+    @Column(name = "contact_info")
+    public String getContactInfo() {
+        return contactInfo;
     }
 
-    public void setContact_info(String contact_info) {
-        this.contact_info = contact_info;
-    }
-
+    @Column(name = "specialization")
     public String getSpecialization() {
         return specialization;
-    }
-
-    public void setSpecialization(String specialization) {
-        this.specialization = specialization;
     }
 }

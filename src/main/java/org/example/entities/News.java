@@ -1,101 +1,73 @@
 package org.example.entities;
+
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "news")
 public class News {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer news_id;
-    @Column(nullable = false)
-    @ManyToOne(optional = false)
-//    @JoinColumn(name = "journalist_id", referencedColumnName = "journalist_id")
-    private Journalist journalist_id;
-    @Column(nullable = false)
-    @ManyToOne(optional = false)
-//    @JoinColumn(name = "editor_id", referencedColumnName = "editor_id")
-    private Editor editor_id;
-    @Column(nullable = false)
+    private Journalist journalistId;
+    private Editor editorId;
     private String title;
-    @Column(nullable = false)
-    private String news_content;
-    @Column(nullable = false)
-    private String publications_date;
-    @Column(nullable = false)
+    private String newsContent;
+    private String publicationsDate;
     private String subject;
-    @Column(nullable = false)
-    private Integer user_views;
+    private Integer userViews;
     private String note;
 
-    public Integer getNews_id() {
-        return news_id;
+    public News(Journalist journalistId, Editor editorId, String title, String newsContent, String publicationsDate, String subject, Integer userViews, String note) {
+        this.journalistId = journalistId;
+        this.editorId = editorId;
+        this.title = title;
+        this.newsContent = newsContent;
+        this.publicationsDate = publicationsDate;
+        this.subject = subject;
+        this.userViews = userViews;
+        this.note = note;
     }
 
-    public void setNews_id(Integer news_id) {
-        this.news_id = news_id;
+    protected News() {
     }
 
-    public Journalist getJournalist_id() {
-        return journalist_id;
+
+    @ManyToOne
+    @JoinColumn(name = "journalist_id")
+    public Journalist getJournalistId() {
+        return journalistId;
     }
 
-    public void setJournalist_id(Journalist journalist_id) {
-        this.journalist_id = journalist_id;
+    @ManyToOne
+    @JoinColumn(name = "editor_id")
+    public Editor getEditorId() {
+        return editorId;
     }
 
-    public Editor getEditor_id() {
-        return editor_id;
-    }
-
-    public void setEditor_id(Editor editor_id) {
-        this.editor_id = editor_id;
-    }
-
+    @Column(name = "title")
     public String getTitle() {
         return title;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    @Column(name = "news_content")
+    public String getNewsContent() {
+        return newsContent;
     }
 
-    public String getNews_content() {
-        return news_content;
+    @Column(name = "publications_date")
+    public String getPublicationsDate() {
+        return publicationsDate;
     }
 
-    public void setNews_content(String news_content) {
-        this.news_content = news_content;
-    }
-
-    public String getPublications_date() {
-        return publications_date;
-    }
-
-    public void setPublications_date(String publications_date) {
-        this.publications_date = publications_date;
-    }
-
+    @Column(name = "subject")
     public String getSubject() {
         return subject;
     }
 
-    public void setSubject(String subject) {
-        this.subject = subject;
+    @Column(name = "user_views")
+    public Integer getUserViews() {
+        return userViews;
     }
 
-    public Integer getUser_views() {
-        return user_views;
-    }
-
-    public void setUser_views(Integer user_views) {
-        this.user_views = user_views;
-    }
-
+    @Column(name = "note")
     public String getNote() {
         return note;
-    }
-
-    public void setNote(String note) {
-        this.note = note;
     }
 }

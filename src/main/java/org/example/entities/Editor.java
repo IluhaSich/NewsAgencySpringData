@@ -1,38 +1,28 @@
 package org.example.entities;
+
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "editor")
 public class Editor {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer editor_id ;
-    @Column(nullable = false)
-    private String full_name;
-    @Column(nullable = false)
-    private String contact_info;
+    private String fullName;
+    private String contactInfo;
 
-    public Integer getEditor_id() {
-        return editor_id;
+    public Editor(String fullName, String contactInfo) {
+        this.fullName = fullName;
+        this.contactInfo = contactInfo;
     }
 
-    public void setEditor_id(Integer editor_id) {
-        this.editor_id = editor_id;
+    private Editor() {
     }
 
-    public String getFull_name() {
-        return full_name;
+    @Column(name = "full_name")
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setFull_name(String full_name) {
-        this.full_name = full_name;
-    }
-
-    public String getContact_info() {
-        return contact_info;
-    }
-
-    public void setContact_info(String contact_info) {
-        this.contact_info = contact_info;
+    @Column(name = "contact_info")
+    public String getContactInfo() {
+        return contactInfo;
     }
 }
