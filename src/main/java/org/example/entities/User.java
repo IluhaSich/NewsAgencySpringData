@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "user_account")
-public class User {
+public class User extends BaseEntity{
     private String nickname;
     private String registrationDate;
 

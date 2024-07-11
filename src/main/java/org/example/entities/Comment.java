@@ -2,7 +2,7 @@ package org.example.entities;
 import jakarta.persistence.*;
 @Entity
 @Table(name = "news_comment")
-public class Comment {
+public class Comment extends BaseEntity{
     private News newsId;
     private User userId;
     private String commentContent;

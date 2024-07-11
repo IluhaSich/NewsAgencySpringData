@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "editor")
-public class Editor {
+public class Editor extends BaseEntity{
     private String fullName;
     private String contactInfo;
 

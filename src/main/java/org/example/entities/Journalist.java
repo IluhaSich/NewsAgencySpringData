@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "journalist")
-public class Journalist {
+public class Journalist extends BaseEntity{
     private String fullName;
     private String contactInfo;
     private String specialization;
