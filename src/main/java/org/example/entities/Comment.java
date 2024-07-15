@@ -1,14 +1,17 @@
 package org.example.entities;
 import jakarta.persistence.*;
+
+import java.time.ZonedDateTime;
+
 @Entity
 @Table(name = "news_comment")
 public class Comment extends BaseEntity{
     private News newsId;
     private User userId;
     private String commentContent;
-    private String publicationsDate;
+    private ZonedDateTime  publicationsDate;
 
-    public Comment(News newsId, User userId, String commentContent, String publicationsDate) {
+    public Comment(News newsId, User userId, String commentContent, ZonedDateTime publicationsDate) {
         this.newsId = newsId;
         this.userId = userId;
         this.commentContent = commentContent;
@@ -35,7 +38,23 @@ public class Comment extends BaseEntity{
     }
 
     @Column(name = "publications_date")
-    public String getPublicationsDate() {
+    public ZonedDateTime  getPublicationsDate() {
         return publicationsDate;
+    }
+
+    public void setNewsId(News newsId) {
+        this.newsId = newsId;
+    }
+
+    public void setUserId(User userId) {
+        this.userId = userId;
+    }
+
+    public void setCommentContent(String commentContent) {
+        this.commentContent = commentContent;
+    }
+
+    public void setPublicationsDate(ZonedDateTime publicationsDate) {
+        this.publicationsDate = publicationsDate;
     }
 }

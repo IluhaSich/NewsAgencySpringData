@@ -36,4 +36,12 @@ public class Journalist extends BaseEntity{
     public String getSpecialization() {
         return specialization;
     }
+
+    public void setContactInfo(String contactInfo) {
+        this.contactInfo = contactInfo;
+    }
+
+    public void setSpecialization(String specialization) {
+        this.specialization = specialization;
+    }
 }

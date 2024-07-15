@@ -2,13 +2,15 @@ package org.example.entities;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
+
 @Entity
 @Table(name = "user_account")
 public class User extends BaseEntity{
     private String nickname;
-    private String registrationDate;
+    private LocalDate  registrationDate;
 
-    public User(String nickname, String registrationDate) {
+    public User(String nickname, LocalDate registrationDate) {
         this.nickname = nickname;
         this.registrationDate = registrationDate;
     }
@@ -22,7 +24,15 @@ public class User extends BaseEntity{
     }
 
     @Column(name = "registration_date")
-    public String getRegistrationDate() {
+    public LocalDate  getRegistrationDate() {
         return registrationDate;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public void setRegistrationDate(LocalDate registrationDate) {
+        this.registrationDate = registrationDate;
     }
 }

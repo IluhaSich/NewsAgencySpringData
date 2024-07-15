@@ -25,4 +25,12 @@ public class Editor extends BaseEntity{
     public String getContactInfo() {
         return contactInfo;
     }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public void setContactInfo(String contactInfo) {
+        this.contactInfo = contactInfo;
+    }
 }
