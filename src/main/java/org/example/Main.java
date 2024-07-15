@@ -1,17 +1,11 @@
 package org.example;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.Persistence;
-import org.example.entities.*;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+@SpringBootApplication
 public class Main {
     public static void main(String[] args) {
-        EntityManagerFactory emf =
-                Persistence.createEntityManagerFactory("editor");
-        EntityManager em = emf.createEntityManager();
-        em.getTransaction().begin();
-        em.find(Editor.class, 1);
-        em.getTransaction().commit();
+        SpringApplication.run(Main.class, args);
     }
 }
